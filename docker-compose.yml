@@ -1,16 +1,11 @@
-version: "3.8"
 services:
-  Krypt-compose:
-    container_name: vite_hardhat
-    entrypoint: /bin/sh
+  krypt-compose:
+    container_name: krypt_cont
+    extra_hosts:
+      - host.docker.internal:host-gateway
     build:
       context: ./client
       dockerfile: Dockerfile
     ports:
-      - 8000:8000
-    working_dir: /app
-    volumes:
-      - type: bind
-        source: ./
-        target: /app
-    tty: true
+      - 3000:3000
+        
