@@ -1,6 +1,6 @@
 services:
-  krypt-compose:
-    container_name: krypt_cont
+  client:
+    container_name: client_cont
     extra_hosts:
       - host.docker.internal:host-gateway
     build:
@@ -8,4 +8,13 @@ services:
       dockerfile: Dockerfile
     ports:
       - 3000:3000
+  smart_contracts:
+    container_name: sc_cont
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    build:
+      context: ./smart_contract
+      dockerfile: Dockerfile
+    ports:
+      - 8545:8545
         
